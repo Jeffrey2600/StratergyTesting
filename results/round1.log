@@ -53,3 +53,44 @@ hrk_kn         GBPUSD  15min score=-1.000 | IS wr= 36.7 pf= 0.63 n=2435 ret= -36
   ...2700/3456
   ...2800/3456
   ...2900/3456
+  ...3000/3456
+  ...3100/3456
+  ...3200/3456
+  ...3300/3456
+  ...3400/3456
+
+===== TOP ema_pullback =====
+ema_pullback   AUDUSD  15min score=1.007 | IS wr= 65.6 pf= 1.13 n=  90 ret=    4.7% || OOS wr= 50.7 pf= 0.65 n=  75 ret=   -9.7%
+    {'fast': 13, 'slow': 21, 'trend': 200, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 0.8, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   AUDUSD  15min score=0.976 | IS wr= 65.0 pf= 1.06 n= 103 ret=    2.5% || OOS wr= 51.9 pf= 0.65 n=  81 ret=  -11.0%
+    {'fast': 8, 'slow': 34, 'trend': 200, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 0.8, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   AUDUSD  15min score=0.975 | IS wr= 61.1 pf= 1.11 n=  90 ret=    3.4% || OOS wr= 46.7 pf= 0.63 n=  75 ret=   -9.1%
+    {'fast': 13, 'slow': 21, 'trend': 200, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 1.0, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   AUDUSD  15min score=0.971 | IS wr= 55.0 pf= 1.19 n=  91 ret=    5.1% || OOS wr= 36.0 pf= 0.47 n=  75 ret=  -11.8%
+    {'fast': 13, 'slow': 21, 'trend': 200, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 1.5, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   GBPUSD  15min score=0.939 | IS wr= 62.7 pf= 1.09 n= 142 ret=    6.0% || OOS wr= 59.2 pf= 0.88 n= 103 ret=   -4.4%
+    {'fast': 5, 'slow': 34, 'trend': 200, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 0.8, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   AUDUSD  15min score=0.934 | IS wr= 60.0 pf= 1.09 n= 100 ret=    3.2% || OOS wr= 48.4 pf= 0.67 n=  91 ret=   -9.6%
+    {'fast': 13, 'slow': 21, 'trend': 100, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 1.0, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   AUDUSD  15min score=0.889 | IS wr= 63.0 pf= 1.04 n= 100 ret=    1.7% || OOS wr= 53.3 pf= 0.71 n=  90 ret=   -9.1%
+    {'fast': 13, 'slow': 21, 'trend': 100, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 0.8, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   AUDUSD  15min score=0.888 | IS wr= 62.9 pf= 1.01 n= 116 ret=    0.3% || OOS wr= 53.6 pf= 0.68 n=  97 ret=  -11.3%
+    {'fast': 8, 'slow': 34, 'trend': 100, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 0.8, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   GBPUSD  15min score=0.882 | IS wr= 66.4 pf= 1.02 n= 140 ret=    1.6% || OOS wr= 67.7 pf= 1.04 n= 102 ret=    1.4%
+    {'fast': 5, 'slow': 34, 'trend': 200, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 0.6, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   AUDUSD  15min score=0.867 | IS wr= 58.4 pf= 1.09 n=  89 ret=    4.0% || OOS wr= 48.0 pf= 0.58 n=  75 ret=  -13.7%
+    {'fast': 13, 'slow': 21, 'trend': 200, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 1.0, 'adx_min': 20, 'sess': (12, 20)}
+[bb_reversion] 3456 combinations
+  ...100/3456
+  ...200/3456
+  ...300/3456
+  ...400/3456
+  ...500/3456
+  ...600/3456
+  ...700/3456
+  ...800/3456
+  ...900/3456
+  ...1000/3456
+  ...1100/3456
+  ...1200/3456
+  ...1300/3456

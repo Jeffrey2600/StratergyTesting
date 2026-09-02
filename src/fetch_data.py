@@ -19,7 +19,7 @@ def pip_size(sym):
 def _url(sym, d, side):
     return f"{BASE}/{sym}/{d.year:04d}/{d.month-1:02d}/{d.day:02d}/{side}_candles_min_1.bi5"
 
-def _fetch(sym, d, side, retries=4):
+def _fetch(sym, d, side, retries=7):
     fn = os.path.join(CACHE, f"{sym}_{side}_{d:%Y%m%d}.bi5")
     if os.path.exists(fn):
         return open(fn, "rb").read()
@@ -35,7 +35,7 @@ def _fetch(sym, d, side, retries=4):
                 return b""
         except Exception:
             pass
-        time.sleep(2 ** i)
+        time.sleep(min(2 ** i, 20))
     return None
 
 def _decode(raw, sym, d):
@@ -84,5 +84,8 @@ if __name__ == "__main__":
     df = load(sym, start, end)
     p = os.path.join(os.path.dirname(__file__), "..", "data", f"{sym}_M1.parquet")
     df.to_parquet(p)
-    print(sym, len(df), df.index[0], df.index[-1],
-          "median spread (pips): %.2f" % (df.spread.median() / pip_size(sym)))
+    got = df.index.normalize().nunique()
+    want = len([d for d in pd.date_range(start, end, freq="D") if d.weekday() < 5])
+    print("%s bars=%d days=%d/%d (%.1f%% coverage) %s -> %s median spread %.2f pips"
+          % (sym, len(df), got, want, got / want * 100, df.index[0].date(),
+             df.index[-1].date(), df.spread.median() / pip_size(sym)))
