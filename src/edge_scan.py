@@ -22,8 +22,7 @@ import numpy as np, pandas as pd
 from engine import resample, pip_size
 
 SYMS = ["EURUSD", "GBPUSD", "AUDUSD", "USDJPY"]
-IS = ("2022-01-01", "2023-12-31")
-OOS = ("2024-01-01", "2025-12-31")
+from config import IS, OOS
 COST_PIPS = 1.5
 
 def features(df, sym):

@@ -18,8 +18,7 @@ from engine import Backtest, Costs
 from engine2 import Backtest2, ExitPlan
 import strategies as st
 
-IS = ("2022-01-01", "2023-12-31")
-OOS = ("2024-01-01", "2025-12-31")
+from config import IS, OOS
 MIN_TRADES = 200
 
 _D = {}

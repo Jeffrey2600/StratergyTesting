@@ -10,8 +10,7 @@ import pandas as pd, numpy as np
 from engine import Backtest, Costs
 import strategies as st
 
-IS = ("2022-01-01", "2023-12-31")
-OOS = ("2024-01-01", "2025-12-31")
+from config import IS, OOS
 MIN_TRADES = 60          # per-window, so a result is not noise
 TARGET_WR = 65.0
 
