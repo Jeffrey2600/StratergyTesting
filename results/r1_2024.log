@@ -77,3 +77,56 @@ hrk_kn         USDJPY  15min score=-1.000 | IS wr= 57.2 pf= 0.50 n=2773 ret= -26
   ...4900/6912
   ...5000/6912
   ...5100/6912
+  ...5200/6912
+  ...5300/6912
+  ...5400/6912
+  ...5500/6912
+  ...5600/6912
+  ...5700/6912
+  ...5800/6912
+  ...5900/6912
+  ...6000/6912
+  ...6100/6912
+  ...6200/6912
+  ...6300/6912
+  ...6400/6912
+  ...6500/6912
+  ...6600/6912
+  ...6700/6912
+  ...6800/6912
+  ...6900/6912
+
+===== TOP ema_pullback =====
+ema_pullback   EURUSD  15min score=1.087 | IS wr= 66.7 pf= 1.17 n= 156 ret=    6.6% || OOS wr= 61.3 pf= 0.95 n=  75 ret=   -1.0%
+    {'fast': 13, 'slow': 21, 'trend': 100, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 0.8, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=1.029 | IS wr= 66.2 pf= 1.11 n= 136 ret=    3.7% || OOS wr= 59.0 pf= 0.78 n=  61 ret=   -3.8%
+    {'fast': 13, 'slow': 21, 'trend': 200, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 0.8, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=1.001 | IS wr= 65.4 pf= 1.06 n= 153 ret=    2.7% || OOS wr= 57.8 pf= 0.82 n=  83 ret=   -4.1%
+    {'fast': 8, 'slow': 34, 'trend': 100, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 0.8, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=0.986 | IS wr= 65.7 pf= 1.06 n= 312 ret=    4.9% || OOS wr= 57.9 pf= 0.70 n= 145 ret=  -11.4%
+    {'fast': 13, 'slow': 21, 'trend': 200, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 0.8, 'adx_min': 0, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=0.979 | IS wr= 65.2 pf= 1.06 n= 351 ret=    5.0% || OOS wr= 58.6 pf= 0.77 n= 186 ret=  -10.9%
+    {'fast': 13, 'slow': 21, 'trend': 100, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 0.8, 'adx_min': 0, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=0.874 | IS wr= 58.2 pf= 1.04 n= 153 ret=    1.9% || OOS wr= 55.4 pf= 0.98 n=  83 ret=   -0.6%
+    {'fast': 8, 'slow': 34, 'trend': 100, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 1.0, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=0.867 | IS wr= 59.0 pf= 1.07 n= 156 ret=    3.5% || OOS wr= 57.3 pf= 1.05 n=  75 ret=    1.1%
+    {'fast': 13, 'slow': 21, 'trend': 100, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 1.0, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=0.863 | IS wr= 63.2 pf= 1.01 n= 152 ret=    0.5% || OOS wr= 50.6 pf= 0.65 n=  81 ret=  -11.6%
+    {'fast': 5, 'slow': 34, 'trend': 200, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 0.8, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=0.831 | IS wr= 57.8 pf= 1.01 n= 135 ret=    0.3% || OOS wr= 52.9 pf= 0.83 n=  68 ret=   -3.7%
+    {'fast': 8, 'slow': 34, 'trend': 200, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 1.0, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=0.824 | IS wr= 58.1 pf= 1.01 n= 136 ret=    0.5% || OOS wr= 55.7 pf= 0.90 n=  61 ret=   -1.7%
+    {'fast': 13, 'slow': 21, 'trend': 200, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 1.0, 'adx_min': 20, 'sess': (12, 20)}
+[bb_reversion] 6912 combinations
+  ...100/6912
+  ...200/6912
+  ...300/6912
+  ...400/6912
+  ...500/6912
+  ...600/6912
+  ...700/6912
+  ...800/6912
+  ...900/6912
+  ...1000/6912
+  ...1100/6912
+  ...1200/6912
