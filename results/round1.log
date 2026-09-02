@@ -1,0 +1,55 @@
+[hrk_kn] 240 combinations
+  ...100/240
+  ...200/240
+
+===== TOP hrk_kn =====
+hrk_kn         GBPUSD   5min score=-1.000 | IS wr= 43.1 pf= 0.27 n=8247 ret=-1015.0% || OOS wr= 34.5 pf= 0.16 n=5912 ret= -689.4%
+    {'fast': 5, 'slow': 13, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 0.6}
+hrk_kn         GBPUSD  15min score=-1.000 | IS wr= 56.9 pf= 0.45 n=2743 ret= -386.2% || OOS wr= 57.1 pf= 0.42 n=2019 ret= -212.5%
+    {'fast': 5, 'slow': 13, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 0.6}
+hrk_kn         AUDUSD   5min score=-1.000 | IS wr= 29.5 pf= 0.10 n=7536 ret= -918.0% || OOS wr= 13.1 pf= 0.04 n=6450 ret= -728.0%
+    {'fast': 5, 'slow': 13, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 0.6}
+hrk_kn         AUDUSD  15min score=-1.000 | IS wr= 57.7 pf= 0.33 n=2485 ret= -300.3% || OOS wr= 51.5 pf= 0.22 n=2235 ret= -247.1%
+    {'fast': 5, 'slow': 13, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 0.6}
+hrk_kn         GBPUSD   5min score=-1.000 | IS wr= 43.6 pf= 0.40 n=8065 ret=-1049.2% || OOS wr= 41.6 pf= 0.32 n=5781 ret= -668.0%
+    {'fast': 5, 'slow': 13, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 1.0}
+hrk_kn         GBPUSD  15min score=-1.000 | IS wr= 46.9 pf= 0.58 n=2589 ret= -360.3% || OOS wr= 50.9 pf= 0.58 n=1903 ret= -193.4%
+    {'fast': 5, 'slow': 13, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 1.0}
+hrk_kn         AUDUSD   5min score=-1.000 | IS wr= 42.6 pf= 0.26 n=7486 ret= -917.1% || OOS wr= 34.8 pf= 0.15 n=6475 ret= -742.3%
+    {'fast': 5, 'slow': 13, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 1.0}
+hrk_kn         AUDUSD  15min score=-1.000 | IS wr= 47.9 pf= 0.48 n=2418 ret= -305.8% || OOS wr= 46.5 pf= 0.38 n=2148 ret= -252.2%
+    {'fast': 5, 'slow': 13, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 1.0}
+hrk_kn         GBPUSD   5min score=-1.000 | IS wr= 37.8 pf= 0.50 n=7668 ret= -992.1% || OOS wr= 37.5 pf= 0.42 n=5529 ret= -654.9%
+    {'fast': 5, 'slow': 13, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 1.5}
+hrk_kn         GBPUSD  15min score=-1.000 | IS wr= 36.7 pf= 0.63 n=2435 ret= -363.5% || OOS wr= 41.1 pf= 0.66 n=1786 ret= -178.0%
+    {'fast': 5, 'slow': 13, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 1.5}
+[ema_pullback] 3456 combinations
+  ...100/3456
+  ...200/3456
+  ...300/3456
+  ...400/3456
+  ...500/3456
+  ...600/3456
+  ...700/3456
+  ...800/3456
+  ...900/3456
+  ...1000/3456
+  ...1100/3456
+  ...1200/3456
+  ...1300/3456
+  ...1400/3456
+  ...1500/3456
+  ...1600/3456
+  ...1700/3456
+  ...1800/3456
+  ...1900/3456
+  ...2000/3456
+  ...2100/3456
+  ...2200/3456
+  ...2300/3456
+  ...2400/3456
+  ...2500/3456
+  ...2600/3456
+  ...2700/3456
+  ...2800/3456
+  ...2900/3456

@@ -152,7 +152,9 @@ class Result:
         wins, losses = d[d.usd > 0], d[d.usd <= 0]
         gp, gl = wins.usd.sum(), -losses.usd.sum()
         eq = self.bal0 + d.usd.cumsum()
-        dd = (eq.cummax() - eq) / eq.cummax() * 100
+        # drawdown measured in USD against the starting stake: percent-of-equity
+        # is meaningless once a fixed-lot account trades past zero.
+        dd_usd = (eq.cummax() - eq).max()
         return {
             "trades": len(d),
             "win_rate": round(len(wins) / len(d) * 100, 2),
@@ -163,7 +165,8 @@ class Result:
             "expectancy_usd": round(d.usd.mean(), 3),
             "avg_win_pips": round(wins.pips.mean(), 1) if len(wins) else 0,
             "avg_loss_pips": round(losses.pips.mean(), 1) if len(losses) else 0,
-            "max_dd_pct": round(dd.max(), 2),
+            "max_dd_usd": round(dd_usd, 2),
+            "max_dd_pct": round(dd_usd / self.bal0 * 100, 2),
             "final_balance": round(self.bal0 + d.usd.sum(), 2),
         }
 
