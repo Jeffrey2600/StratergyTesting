@@ -1,3 +1,112 @@
 1152 configs x 4 pairs
   50/1152
   100/1152
+  150/1152
+  200/1152
+  250/1152
+  300/1152
+  350/1152
+  400/1152
+  450/1152
+  500/1152
+  550/1152
+  600/1152
+  650/1152
+  700/1152
+  750/1152
+  800/1152
+  850/1152
+  900/1152
+  950/1152
+  1000/1152
+  1050/1152
+  1100/1152
+  1150/1152
+
+715 configs scored (of 1152)
+
+########## ROUND 2 TOP ##########
+
+bb_reversion 15min score=-1.000 IS: worstPF=0.70 meanWR=49.33% || OOS: worstPF=0.75 meanWR=50.45%
+   {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 1.0, 'rsi_ob': 65, 'rsi_os': 35, 'sess': (7, 17)}  plan=None
+     EURUSD: IS wr= 49.3 pf= 0.75 n=1229 | OOS wr= 53.3 pf= 0.89 n= 982
+     GBPUSD: IS wr= 52.0 pf= 0.86 n= 940 | OOS wr= 49.1 pf= 0.78 n= 670
+     AUDUSD: IS wr= 49.5 pf= 0.73 n= 683 | OOS wr= 51.0 pf= 0.75 n= 592
+     USDJPY: IS wr= 46.5 pf= 0.70 n=1028 | OOS wr= 48.5 pf= 0.84 n= 776
+
+bb_reversion 30min score=-1.000 IS: worstPF=0.78 meanWR=49.12% || OOS: worstPF=0.71 meanWR=48.0%
+   {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 1.0, 'rsi_ob': 65, 'rsi_os': 35, 'sess': (7, 17)}  plan=None
+     EURUSD: IS wr= 50.5 pf= 0.83 n= 806 | OOS wr= 48.8 pf= 0.80 n= 644
+     GBPUSD: IS wr= 49.6 pf= 0.82 n= 601 | OOS wr= 46.1 pf= 0.74 n= 455
+     AUDUSD: IS wr= 49.6 pf= 0.78 n= 387 | OOS wr= 48.6 pf= 0.71 n= 331
+     USDJPY: IS wr= 46.8 pf= 0.81 n= 637 | OOS wr= 48.5 pf= 0.84 n= 456
+
+bb_reversion 15min score=-1.000 IS: worstPF=0.69 meanWR=49.06% || OOS: worstPF=0.71 meanWR=50.19%
+   {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 1.0, 'rsi_ob': 65, 'rsi_os': 35, 'sess': (0, 24)}  plan=None
+     EURUSD: IS wr= 49.6 pf= 0.75 n=2044 | OOS wr= 52.9 pf= 0.88 n=1645
+     GBPUSD: IS wr= 51.0 pf= 0.84 n=1608 | OOS wr= 48.3 pf= 0.73 n=1122
+     AUDUSD: IS wr= 48.6 pf= 0.69 n=1487 | OOS wr= 51.2 pf= 0.71 n=1267
+     USDJPY: IS wr= 47.0 pf= 0.72 n=2122 | OOS wr= 48.3 pf= 0.79 n=1674
+
+bb_reversion 30min score=-1.000 IS: worstPF=0.75 meanWR=47.31% || OOS: worstPF=0.70 meanWR=48.14%
+   {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 1.0, 'rsi_ob': 65, 'rsi_os': 35, 'sess': (0, 24)}  plan=None
+     EURUSD: IS wr= 47.9 pf= 0.81 n=1239 | OOS wr= 49.8 pf= 0.82 n=1017
+     GBPUSD: IS wr= 47.2 pf= 0.81 n= 966 | OOS wr= 48.3 pf= 0.78 n= 718
+     AUDUSD: IS wr= 48.2 pf= 0.75 n= 851 | OOS wr= 47.6 pf= 0.70 n= 752
+     USDJPY: IS wr= 45.9 pf= 0.78 n=1226 | OOS wr= 46.9 pf= 0.79 n=1028
+
+bb_reversion 15min score=-1.000 IS: worstPF=0.69 meanWR=48.31% || OOS: worstPF=0.72 meanWR=50.26%
+   {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 1.0, 'rsi_ob': 70, 'rsi_os': 30, 'sess': (7, 17)}  plan=None
+     EURUSD: IS wr= 49.9 pf= 0.76 n= 786 | OOS wr= 53.4 pf= 0.93 n= 607
+     GBPUSD: IS wr= 49.5 pf= 0.78 n= 553 | OOS wr= 51.1 pf= 0.85 n= 409
+     AUDUSD: IS wr= 47.5 pf= 0.70 n= 408 | OOS wr= 49.9 pf= 0.72 n= 355
+     USDJPY: IS wr= 46.3 pf= 0.69 n= 661 | OOS wr= 46.7 pf= 0.79 n= 469
+
+bb_reversion 30min score=-1.000 IS: worstPF=0.78 meanWR=49.03% || OOS: worstPF=0.71 meanWR=47.46%
+   {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 1.0, 'rsi_ob': 70, 'rsi_os': 30, 'sess': (7, 17)}  plan=None
+     EURUSD: IS wr= 49.2 pf= 0.78 n= 502 | OOS wr= 47.9 pf= 0.79 n= 405
+     GBPUSD: IS wr= 49.5 pf= 0.80 n= 380 | OOS wr= 48.2 pf= 0.84 n= 280
+     AUDUSD: IS wr= 49.2 pf= 0.78 n= 262 | OOS wr= 47.5 pf= 0.71 n= 179
+     USDJPY: IS wr= 48.2 pf= 0.90 n= 421 | OOS wr= 46.3 pf= 0.77 n= 294
+
+bb_reversion 15min score=-1.000 IS: worstPF=0.69 meanWR=47.97% || OOS: worstPF=0.67 meanWR=48.86%
+   {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 1.0, 'rsi_ob': 70, 'rsi_os': 30, 'sess': (0, 24)}  plan=None
+     EURUSD: IS wr= 48.7 pf= 0.73 n=1340 | OOS wr= 51.8 pf= 0.89 n=1053
+     GBPUSD: IS wr= 48.9 pf= 0.79 n= 997 | OOS wr= 48.7 pf= 0.76 n= 725
+     AUDUSD: IS wr= 48.0 pf= 0.69 n= 932 | OOS wr= 49.0 pf= 0.67 n= 798
+     USDJPY: IS wr= 46.3 pf= 0.69 n=1418 | OOS wr= 46.0 pf= 0.73 n=1091
+
+bb_reversion 30min score=-1.000 IS: worstPF=0.74 meanWR=46.74% || OOS: worstPF=0.69 meanWR=47.97%
+   {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 1.0, 'rsi_ob': 70, 'rsi_os': 30, 'sess': (0, 24)}  plan=None
+     EURUSD: IS wr= 46.6 pf= 0.76 n= 817 | OOS wr= 48.3 pf= 0.77 n= 702
+     GBPUSD: IS wr= 47.3 pf= 0.84 n= 657 | OOS wr= 49.5 pf= 0.82 n= 489
+     AUDUSD: IS wr= 46.8 pf= 0.74 n= 605 | OOS wr= 46.5 pf= 0.69 n= 492
+     USDJPY: IS wr= 46.2 pf= 0.80 n= 896 | OOS wr= 47.5 pf= 0.78 n= 736
+
+bb_reversion 15min score=-1.000 IS: worstPF=0.57 meanWR=45.12% || OOS: worstPF=0.64 meanWR=45.81%
+   {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 1.0, 'rsi_ob': 75, 'rsi_os': 25, 'sess': (0, 24)}  plan=None
+     EURUSD: IS wr= 45.8 pf= 0.70 n= 694 | OOS wr= 46.6 pf= 0.79 n= 581
+     GBPUSD: IS wr= 47.2 pf= 0.78 n= 513 | OOS wr= 43.4 pf= 0.64 n= 396
+     AUDUSD: IS wr= 43.1 pf= 0.57 n= 496 | OOS wr= 48.1 pf= 0.68 n= 418
+     USDJPY: IS wr= 44.4 pf= 0.68 n= 834 | OOS wr= 45.1 pf= 0.71 n= 599
+
+bb_reversion 30min score=-1.000 IS: worstPF=0.65 meanWR=44.24% || OOS: worstPF=0.66 meanWR=47.33%
+   {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 1.0, 'rsi_ob': 75, 'rsi_os': 25, 'sess': (0, 24)}  plan=None
+     EURUSD: IS wr= 45.5 pf= 0.67 n= 506 | OOS wr= 45.7 pf= 0.76 n= 427
+     GBPUSD: IS wr= 43.0 pf= 0.69 n= 384 | OOS wr= 49.2 pf= 0.82 n= 297
+     AUDUSD: IS wr= 44.0 pf= 0.65 n= 364 | OOS wr= 47.1 pf= 0.66 n= 289
+     USDJPY: IS wr= 44.6 pf= 0.77 n= 583 | OOS wr= 47.5 pf= 0.79 n= 432
+
+bb_reversion 15min score=-1.000 IS: worstPF=0.70 meanWR=44.62% || OOS: worstPF=0.71 meanWR=45.18%
+   {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 1.2, 'rsi_ob': 65, 'rsi_os': 35, 'sess': (7, 17)}  plan=None
+     EURUSD: IS wr= 43.8 pf= 0.73 n=1184 | OOS wr= 47.4 pf= 0.87 n= 966
+     GBPUSD: IS wr= 47.8 pf= 0.89 n= 917 | OOS wr= 44.0 pf= 0.78 n= 661
+     AUDUSD: IS wr= 45.6 pf= 0.79 n= 675 | OOS wr= 45.3 pf= 0.71 n= 576
+     USDJPY: IS wr= 41.4 pf= 0.70 n=1006 | OOS wr= 44.0 pf= 0.84 n= 757
+
+bb_reversion 30min score=-1.000 IS: worstPF=0.78 meanWR=44.93% || OOS: worstPF=0.74 meanWR=44.06%
+   {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 1.2, 'rsi_ob': 65, 'rsi_os': 35, 'sess': (7, 17)}  plan=None
+     EURUSD: IS wr= 45.9 pf= 0.86 n= 775 | OOS wr= 44.6 pf= 0.83 n= 623
+     GBPUSD: IS wr= 45.8 pf= 0.86 n= 581 | OOS wr= 42.8 pf= 0.78 n= 444
+     AUDUSD: IS wr= 46.0 pf= 0.82 n= 376 | OOS wr= 44.5 pf= 0.74 n= 330
+     USDJPY: IS wr= 42.0 pf= 0.78 n= 619 | OOS wr= 44.3 pf= 0.86 n= 445
