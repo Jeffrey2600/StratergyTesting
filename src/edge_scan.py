@@ -75,6 +75,11 @@ def scan_one(sym, tf, horizons=(1, 2, 4, 8, 24)):
                     v = y[mask & w].dropna()
                     if len(v) < 200:
                         continue
+                    # excess over the window's own drift. Measured raw, any
+                    # condition that merely samples a trending period looks
+                    # like an edge - a 24h-reversal candidate that passed every
+                    # other filter turned out to be exactly that.
+                    v = v - y[w].dropna().mean()
                     mu, se = v.mean(), v.std() / np.sqrt(len(v))
                     rows.append(dict(sym=sym, tf=tf, group=group, cond=name, h=h,
                                      win=tag, n=len(v), mean_pips=mu,
