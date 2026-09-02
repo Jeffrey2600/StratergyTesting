@@ -94,3 +94,49 @@ ema_pullback   AUDUSD  15min score=0.867 | IS wr= 58.4 pf= 1.09 n=  89 ret=    4
   ...1100/3456
   ...1200/3456
   ...1300/3456
+  ...1400/3456
+  ...1500/3456
+  ...1600/3456
+  ...1700/3456
+  ...1800/3456
+  ...1900/3456
+  ...2000/3456
+  ...2100/3456
+  ...2200/3456
+  ...2300/3456
+  ...2400/3456
+  ...2500/3456
+  ...2600/3456
+  ...2700/3456
+  ...2800/3456
+  ...2900/3456
+  ...3000/3456
+  ...3100/3456
+  ...3200/3456
+  ...3300/3456
+  ...3400/3456
+
+===== TOP bb_reversion =====
+bb_reversion   AUDUSD  15min score=0.573 | IS wr= 44.9 pf= 1.05 n= 272 ret=   10.6% || OOS wr= 44.2 pf= 0.97 n= 249 ret=   -3.4%
+    {'bb_len': 30, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 70, 'rsi_os': 35, 'sess': (7, 17)}
+bb_reversion   AUDUSD  15min score=0.542 | IS wr= 45.4 pf= 1.06 n= 227 ret=   10.7% || OOS wr= 46.5 pf= 1.11 n= 198 ret=   11.3%
+    {'bb_len': 30, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 70, 'rsi_os': 30, 'sess': (7, 17)}
+bb_reversion   AUDUSD  15min score=0.505 | IS wr= 44.9 pf= 1.03 n= 225 ret=    5.9% || OOS wr= 43.3 pf= 0.91 n= 210 ret=  -10.6%
+    {'bb_len': 20, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 65, 'rsi_os': 30, 'sess': (7, 17)}
+bb_reversion   AUDUSD  15min score=0.496 | IS wr= 44.5 pf= 1.03 n= 499 ret=   11.9% || OOS wr= 39.8 pf= 0.80 n= 430 ret=  -52.7%
+    {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 65, 'rsi_os': 35, 'sess': (7, 17)}
+bb_reversion   AUDUSD  15min score=0.490 | IS wr= 44.7 pf= 1.02 n= 517 ret=    7.5% || OOS wr= 38.3 pf= 0.78 n= 441 ret=  -59.7%
+    {'bb_len': 30, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 65, 'rsi_os': 35, 'sess': (7, 17)}
+bb_reversion   AUDUSD  15min score=0.453 | IS wr= 44.4 pf= 1.03 n= 275 ret=    6.7% || OOS wr= 42.0 pf= 0.92 n= 250 ret=  -12.3%
+    {'bb_len': 20, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 65, 'rsi_os': 35, 'sess': (7, 17)}
+bb_reversion   AUDUSD  15min score=0.448 | IS wr= 43.6 pf= 1.02 n= 234 ret=    4.5% || OOS wr= 46.3 pf= 1.12 n= 216 ret=   13.7%
+    {'bb_len': 20, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 70, 'rsi_os': 35, 'sess': (7, 17)}
+bb_reversion   AUDUSD  15min score=0.440 | IS wr= 43.6 pf= 1.01 n= 181 ret=    1.3% || OOS wr= 47.3 pf= 1.11 n= 169 ret=   10.0%
+    {'bb_len': 20, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 70, 'rsi_os': 30, 'sess': (7, 17)}
+bb_reversion   GBPUSD  15min score=0.352 | IS wr= 44.6 pf= 1.03 n= 451 ret=   13.9% || OOS wr= 38.1 pf= 0.79 n= 349 ret=  -61.4%
+    {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 65, 'rsi_os': 25, 'sess': (7, 17)}
+bb_reversion   GBPUSD   5min score=-1.000 | IS wr= 69.0 pf= 0.63 n=2236 ret= -182.3% || OOS wr= 66.3 pf= 0.45 n=1703 ret= -158.8%
+    {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 0.5, 'rsi_ob': 65, 'rsi_os': 35, 'sess': (7, 17)}
+[donchian_break] 384 combinations
+  ...100/384
+  ...200/384

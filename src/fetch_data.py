@@ -85,7 +85,7 @@ if __name__ == "__main__":
     p = os.path.join(os.path.dirname(__file__), "..", "data", f"{sym}_M1.parquet")
     df.to_parquet(p)
     got = df.index.normalize().nunique()
-    want = len([d for d in pd.date_range(start, end, freq="D") if d.weekday() < 5])
+    want = len([d for d in pd.date_range(start, end, freq="D") if d.weekday() != 5])
     print("%s bars=%d days=%d/%d (%.1f%% coverage) %s -> %s median spread %.2f pips"
           % (sym, len(df), got, want, got / want * 100, df.index[0].date(),
              df.index[-1].date(), df.spread.median() / pip_size(sym)))
