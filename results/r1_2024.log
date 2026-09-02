@@ -149,3 +149,136 @@ ema_pullback   EURUSD  15min score=0.824 | IS wr= 58.1 pf= 1.01 n= 136 ret=    0
   ...2900/6912
   ...3000/6912
   ...3100/6912
+  ...3200/6912
+  ...3300/6912
+  ...3400/6912
+  ...3500/6912
+  ...3600/6912
+  ...3700/6912
+  ...3800/6912
+  ...3900/6912
+  ...4000/6912
+  ...4100/6912
+  ...4200/6912
+  ...4300/6912
+  ...4400/6912
+  ...4500/6912
+  ...4600/6912
+  ...4700/6912
+  ...4800/6912
+  ...4900/6912
+  ...5000/6912
+  ...5100/6912
+  ...5200/6912
+  ...5300/6912
+  ...5400/6912
+  ...5500/6912
+  ...5600/6912
+  ...5700/6912
+  ...5800/6912
+  ...5900/6912
+  ...6000/6912
+  ...6100/6912
+  ...6200/6912
+  ...6300/6912
+  ...6400/6912
+  ...6500/6912
+  ...6600/6912
+  ...6700/6912
+  ...6800/6912
+  ...6900/6912
+
+===== TOP bb_reversion =====
+bb_reversion   AUDUSD  15min score=0.714 | IS wr= 47.6 pf= 1.12 n= 149 ret=    9.6% || OOS wr= 41.7 pf= 0.98 n=  84 ret=   -0.9%
+    {'bb_len': 20, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 75, 'rsi_os': 30, 'sess': (7, 17)}
+bb_reversion   USDJPY  15min score=0.650 | IS wr= 58.1 pf= 1.00 n= 463 ret=    1.2% || OOS wr= 58.9 pf= 0.88 n= 260 ret=  -14.8%
+    {'bb_len': 30, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 0.8, 'rsi_ob': 75, 'rsi_os': 35, 'sess': (7, 17)}
+bb_reversion   AUDUSD  15min score=0.639 | IS wr= 47.1 pf= 1.10 n= 210 ret=   11.0% || OOS wr= 47.0 pf= 1.14 n= 115 ret=    7.7%
+    {'bb_len': 20, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 70, 'rsi_os': 30, 'sess': (7, 17)}
+bb_reversion   AUDUSD  15min score=0.537 | IS wr= 44.8 pf= 1.01 n= 248 ret=    0.8% || OOS wr= 47.8 pf= 1.16 n= 157 ret=   12.4%
+    {'bb_len': 30, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 70, 'rsi_os': 30, 'sess': (7, 17)}
+bb_reversion   EURUSD  15min score=0.537 | IS wr= 43.4 pf= 1.02 n= 655 ret=    7.0% || OOS wr= 37.1 pf= 0.79 n= 369 ret=  -40.1%
+    {'bb_len': 30, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 75, 'rsi_os': 35, 'sess': (0, 24)}
+bb_reversion   EURUSD  15min score=0.530 | IS wr= 43.8 pf= 1.02 n= 525 ret=    5.7% || OOS wr= 41.4 pf= 0.90 n= 263 ret=  -15.7%
+    {'bb_len': 30, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 65, 'rsi_os': 35, 'sess': (7, 17)}
+bb_reversion   EURUSD  15min score=0.497 | IS wr= 42.9 pf= 1.01 n= 294 ret=    1.9% || OOS wr= 36.5 pf= 0.75 n= 145 ret=  -24.4%
+    {'bb_len': 30, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 75, 'rsi_os': 30, 'sess': (7, 17)}
+bb_reversion   AUDUSD  15min score=0.437 | IS wr= 42.7 pf= 1.01 n= 527 ret=    3.1% || OOS wr= 44.2 pf= 1.00 n= 267 ret=    0.1%
+    {'bb_len': 20, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 70, 'rsi_os': 30, 'sess': (0, 24)}
+bb_reversion   EURUSD   5min score=-1.000 | IS wr= 57.0 pf= 0.37 n=2479 ret= -230.6% || OOS wr= 59.9 pf= 0.32 n=1368 ret= -119.5%
+    {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 0.5, 'rsi_ob': 65, 'rsi_os': 35, 'sess': (7, 17)}
+bb_reversion   EURUSD  15min score=-1.000 | IS wr= 67.2 pf= 0.56 n=1308 ret= -120.3% || OOS wr= 70.7 pf= 0.61 n= 704 ret=  -46.0%
+    {'bb_len': 20, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 0.5, 'rsi_ob': 65, 'rsi_os': 35, 'sess': (7, 17)}
+[donchian_break] 768 combinations
+  ...100/768
+  ...200/768
+  ...300/768
+  ...400/768
+  ...500/768
+  ...600/768
+  ...700/768
+
+===== TOP donchian_break =====
+donchian_break EURUSD   5min score=-1.000 | IS wr= 46.1 pf= 0.28 n=4842 ret= -554.3% || OOS wr= 47.3 pf= 0.22 n=2835 ret= -324.5%
+    {'ch': 20, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 0.8, 'trend': 100, 'sess': (7, 17)}
+donchian_break EURUSD  15min score=-1.000 | IS wr= 54.5 pf= 0.46 n=2066 ret= -236.7% || OOS wr= 54.5 pf= 0.41 n=1152 ret= -133.9%
+    {'ch': 20, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 0.8, 'trend': 100, 'sess': (7, 17)}
+donchian_break GBPUSD   5min score=-1.000 | IS wr= 53.2 pf= 0.36 n=4941 ret= -563.4% || OOS wr= 53.3 pf= 0.35 n=2901 ret= -326.8%
+    {'ch': 20, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 0.8, 'trend': 100, 'sess': (7, 17)}
+donchian_break GBPUSD  15min score=-1.000 | IS wr= 53.5 pf= 0.52 n=2082 ret= -254.4% || OOS wr= 52.8 pf= 0.48 n=1145 ret= -152.0%
+    {'ch': 20, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 0.8, 'trend': 100, 'sess': (7, 17)}
+donchian_break AUDUSD   5min score=-1.000 | IS wr= 36.1 pf= 0.15 n=4636 ret= -509.5% || OOS wr= 35.4 pf= 0.15 n=2662 ret= -298.0%
+    {'ch': 20, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 0.8, 'trend': 100, 'sess': (7, 17)}
+donchian_break AUDUSD  15min score=-1.000 | IS wr= 55.0 pf= 0.37 n=1788 ret= -200.8% || OOS wr= 52.6 pf= 0.33 n=1028 ret= -126.9%
+    {'ch': 20, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 0.8, 'trend': 100, 'sess': (7, 17)}
+donchian_break USDJPY   5min score=-1.000 | IS wr= 52.8 pf= 0.47 n=4563 ret= -383.0% || OOS wr= 45.0 pf= 0.30 n=2497 ret= -222.5%
+    {'ch': 20, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 0.8, 'trend': 100, 'sess': (7, 17)}
+donchian_break USDJPY  15min score=-1.000 | IS wr= 56.5 pf= 0.67 n=1801 ret= -139.8% || OOS wr= 51.0 pf= 0.48 n= 949 ret=  -92.2%
+    {'ch': 20, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 0.8, 'trend': 100, 'sess': (7, 17)}
+donchian_break EURUSD   5min score=-1.000 | IS wr= 31.9 pf= 0.19 n=10459 ret=-1211.0% || OOS wr= 31.8 pf= 0.15 n=6163 ret= -698.2%
+    {'ch': 20, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 0.8, 'trend': 100, 'sess': (0, 24)}
+donchian_break EURUSD  15min score=-1.000 | IS wr= 50.4 pf= 0.41 n=3671 ret= -429.9% || OOS wr= 50.4 pf= 0.36 n=2121 ret= -255.3%
+    {'ch': 20, 'atr_len': 14, 'sl_mult': 1.0, 'rr': 0.8, 'trend': 100, 'sess': (0, 24)}
+
+
+########## OVERALL TOP 20 ##########
+ema_pullback   EURUSD  15min score=1.087 | IS wr= 66.7 pf= 1.17 n= 156 ret=    6.6% || OOS wr= 61.3 pf= 0.95 n=  75 ret=   -1.0%
+    {'fast': 13, 'slow': 21, 'trend': 100, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 0.8, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=1.029 | IS wr= 66.2 pf= 1.11 n= 136 ret=    3.7% || OOS wr= 59.0 pf= 0.78 n=  61 ret=   -3.8%
+    {'fast': 13, 'slow': 21, 'trend': 200, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 0.8, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=1.001 | IS wr= 65.4 pf= 1.06 n= 153 ret=    2.7% || OOS wr= 57.8 pf= 0.82 n=  83 ret=   -4.1%
+    {'fast': 8, 'slow': 34, 'trend': 100, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 0.8, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=0.986 | IS wr= 65.7 pf= 1.06 n= 312 ret=    4.9% || OOS wr= 57.9 pf= 0.70 n= 145 ret=  -11.4%
+    {'fast': 13, 'slow': 21, 'trend': 200, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 0.8, 'adx_min': 0, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=0.979 | IS wr= 65.2 pf= 1.06 n= 351 ret=    5.0% || OOS wr= 58.6 pf= 0.77 n= 186 ret=  -10.9%
+    {'fast': 13, 'slow': 21, 'trend': 100, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 0.8, 'adx_min': 0, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=0.874 | IS wr= 58.2 pf= 1.04 n= 153 ret=    1.9% || OOS wr= 55.4 pf= 0.98 n=  83 ret=   -0.6%
+    {'fast': 8, 'slow': 34, 'trend': 100, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 1.0, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=0.867 | IS wr= 59.0 pf= 1.07 n= 156 ret=    3.5% || OOS wr= 57.3 pf= 1.05 n=  75 ret=    1.1%
+    {'fast': 13, 'slow': 21, 'trend': 100, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 1.0, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=0.863 | IS wr= 63.2 pf= 1.01 n= 152 ret=    0.5% || OOS wr= 50.6 pf= 0.65 n=  81 ret=  -11.6%
+    {'fast': 5, 'slow': 34, 'trend': 200, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 0.8, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=0.831 | IS wr= 57.8 pf= 1.01 n= 135 ret=    0.3% || OOS wr= 52.9 pf= 0.83 n=  68 ret=   -3.7%
+    {'fast': 8, 'slow': 34, 'trend': 200, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 1.0, 'adx_min': 20, 'sess': (12, 20)}
+ema_pullback   EURUSD  15min score=0.824 | IS wr= 58.1 pf= 1.01 n= 136 ret=    0.5% || OOS wr= 55.7 pf= 0.90 n=  61 ret=   -1.7%
+    {'fast': 13, 'slow': 21, 'trend': 200, 'atr_len': 14, 'sl_mult': 1.5, 'rr': 1.0, 'adx_min': 20, 'sess': (12, 20)}
+bb_reversion   AUDUSD  15min score=0.714 | IS wr= 47.6 pf= 1.12 n= 149 ret=    9.6% || OOS wr= 41.7 pf= 0.98 n=  84 ret=   -0.9%
+    {'bb_len': 20, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 75, 'rsi_os': 30, 'sess': (7, 17)}
+bb_reversion   USDJPY  15min score=0.650 | IS wr= 58.1 pf= 1.00 n= 463 ret=    1.2% || OOS wr= 58.9 pf= 0.88 n= 260 ret=  -14.8%
+    {'bb_len': 30, 'bb_std': 2.0, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 0.8, 'rsi_ob': 75, 'rsi_os': 35, 'sess': (7, 17)}
+bb_reversion   AUDUSD  15min score=0.639 | IS wr= 47.1 pf= 1.10 n= 210 ret=   11.0% || OOS wr= 47.0 pf= 1.14 n= 115 ret=    7.7%
+    {'bb_len': 20, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 70, 'rsi_os': 30, 'sess': (7, 17)}
+ema_pullback   GBPUSD  15min score=0.590 | IS wr= 44.7 pf= 1.02 n= 170 ret=    2.0% || OOS wr= 45.2 pf= 0.90 n=  93 ret=   -5.9%
+    {'fast': 5, 'slow': 34, 'trend': 100, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 1.5, 'adx_min': 20, 'sess': (12, 20)}
+bb_reversion   AUDUSD  15min score=0.537 | IS wr= 44.8 pf= 1.01 n= 248 ret=    0.8% || OOS wr= 47.8 pf= 1.16 n= 157 ret=   12.4%
+    {'bb_len': 30, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 70, 'rsi_os': 30, 'sess': (7, 17)}
+bb_reversion   EURUSD  15min score=0.537 | IS wr= 43.4 pf= 1.02 n= 655 ret=    7.0% || OOS wr= 37.1 pf= 0.79 n= 369 ret=  -40.1%
+    {'bb_len': 30, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 75, 'rsi_os': 35, 'sess': (0, 24)}
+bb_reversion   EURUSD  15min score=0.530 | IS wr= 43.8 pf= 1.02 n= 525 ret=    5.7% || OOS wr= 41.4 pf= 0.90 n= 263 ret=  -15.7%
+    {'bb_len': 30, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 65, 'rsi_os': 35, 'sess': (7, 17)}
+bb_reversion   EURUSD  15min score=0.497 | IS wr= 42.9 pf= 1.01 n= 294 ret=    1.9% || OOS wr= 36.5 pf= 0.75 n= 145 ret=  -24.4%
+    {'bb_len': 30, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 75, 'rsi_os': 30, 'sess': (7, 17)}
+bb_reversion   AUDUSD  15min score=0.437 | IS wr= 42.7 pf= 1.01 n= 527 ret=    3.1% || OOS wr= 44.2 pf= 1.00 n= 267 ret=    0.1%
+    {'bb_len': 20, 'bb_std': 2.5, 'atr_len': 14, 'sl_mult': 3.0, 'rr': 1.5, 'rsi_ob': 70, 'rsi_os': 30, 'sess': (0, 24)}
+hrk_kn         USDJPY  15min score=0.311 | IS wr= 29.1 pf= 1.03 n= 860 ret=   16.4% || OOS wr= 23.1 pf= 0.79 n= 472 ret=  -52.2%
+    {'fast': 5, 'slow': 21, 'atr_len': 14, 'sl_mult': 2.0, 'rr': 3.0}
