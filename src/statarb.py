@@ -70,16 +70,26 @@ def backtest(a, b, lookback=500, entry=2.0, exit_z=0.5, stop_z=4.0,
     slip_a = costs.slippage_pips * pip_size(a)
     slip_b = costs.slippage_pips * pip_size(b)
     zv = z.values
+    bv = beta.values
     n = len(idx)
     trades = []
     i = lookback + 1
     while i < n - 1:
         if not np.isfinite(zv[i]) or abs(zv[i]) < entry:
             i += 1; continue
-        d = -1 if zv[i] > 0 else 1        # fade the stretch: short A / long B when z high
+        d = -1 if zv[i] > 0 else 1        # fade the stretch on leg A
+        # Hedge direction follows the SIGN OF BETA. Shorting the spread
+        # (A - beta*B) means -1 of A and +beta of B, so a negative beta wants
+        # BOTH legs short, not opposite legs. Hardcoding opposite legs turned
+        # every negative-beta combination into an unhedged doubled directional
+        # bet - which is exactly what the first grid rewarded.
+        bs = bv[i]
+        if not np.isfinite(bs) or bs == 0:
+            i += 1; continue
+        hb = -d * np.sign(bs)
         j = i + 1                          # fill next bar open
         ea = oa[j] + d * (pa[j] / 2 + slip_a)
-        eb = ob[j] - d * (pb[j] / 2 + slip_b)
+        eb = ob[j] + hb * (pb[j] / 2 + slip_b)
         out = None
         for k in range(j, min(n - 1, j + max_hold)):
             if abs(zv[k]) < exit_z or abs(zv[k]) > stop_z:
@@ -87,13 +97,15 @@ def backtest(a, b, lookback=500, entry=2.0, exit_z=0.5, stop_z=4.0,
         if out is None:
             out = min(n - 1, j + max_hold)
         xa = oa[out] - d * (pa[out] / 2 + slip_a)
-        xb = ob[out] + d * (pb[out] / 2 + slip_b)
+        xb = ob[out] - hb * (pb[out] / 2 + slip_b)
         pips_a = d * (xa - ea) / pip_size(a)
-        pips_b = -d * (xb - eb) / pip_size(b)
+        pips_b = hb * (xb - eb) / pip_size(b)
         usd = (pips_a * usd_per_pip(a, ea, uj[j]) + pips_b * usd_per_pip(b, eb, uj[j])
                - 2 * costs.commission_per_lot * LOT)
-        trades.append(dict(t_in=idx[j], t_out=idx[out], usd=usd,
-                           bars=out - j, z_in=zv[i]))
+        trades.append(dict(t_in=idx[j], t_out=idx[out], usd=usd, beta=bs,
+                           bars=out - j, z_in=zv[i],
+                           usd_a=pips_a * usd_per_pip(a, ea, uj[j]),
+                           usd_b=pips_b * usd_per_pip(b, eb, uj[j])))
         i = out + 1
     return pd.DataFrame(trades)
 
