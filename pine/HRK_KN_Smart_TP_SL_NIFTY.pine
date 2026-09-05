@@ -1,0 +1,312 @@
+//@version=6
+strategy('HRK KN - Smart TP SL [Backtest]',
+     overlay              = true,
+     max_labels_count     = 500,
+     max_lines_count      = 500,
+     initial_capital      = 1000000,        // enough margin for one NIFTY lot
+     default_qty_type     = strategy.fixed,  // percent_of_equity rounded to 0 on NIFTY
+     default_qty_value    = 75,             // NIFTY futures lot size - verify current value
+     currency             = currency.INR,
+     commission_type      = strategy.commission.cash_per_order,
+     commission_value     = 20,             // flat per order, as Indian brokers charge
+     slippage             = 2,              // ticks; NIFTY tick = 0.05
+     calc_on_every_tick   = false,
+     process_orders_on_close = true,
+     pyramiding           = 0)
+
+// ═══════════════════════════════════════
+// BACKTEST WINDOW
+// ═══════════════════════════════════════
+const string btGR = 'Backtest Window'
+useDateFilter = input.bool(true,  'Limit Backtest Date Range', group = btGR)
+startDate     = input.time(timestamp('01 Jan 2020 00:00 +0530'), 'Start', group = btGR)
+endDate       = input.time(timestamp('01 Jan 2030 00:00 +0530'), 'End',   group = btGR)
+inWindow      = not useDateFilter or (time >= startDate and time <= endDate)
+
+// ═══════════════════════════════════════
+// INPUTS
+// ═══════════════════════════════════════
+emaFastLen   = input.int(5,    'Fast EMA',   minval = 1)
+emaSlowLen   = input.int(13,   'Slow EMA',   minval = 1)
+atrLen       = input.int(14,   'ATR Period', minval = 1)
+slAtrMult    = input.float(1.5,'SL ATR Multiplier', step = 0.1)
+rr1          = input.float(1.0,'TP1 RR', step = 0.1)
+rr2          = input.float(2.0,'TP2 RR', step = 0.1)
+rr3          = input.float(3.0,'TP3 RR', step = 0.1)
+
+// ─── Exit model ───────────────────────────────────────────────────────────
+const string exGR = 'Exit Model'
+useScaledExits = input.bool(true, 'Scale out at TP1 / TP2 / TP3', group = exGR,
+     tooltip = 'ON  = partial exits (realistic for most brokers, TP1/TP2 actually bank profit).\nOFF = single full exit at TP3 or SL (matches AlgoTest, which only supports full-position exits).')
+tp1Pct = input.float(40, 'TP1 % of position', minval = 0, maxval = 100, group = exGR)
+tp2Pct = input.float(30, 'TP2 % of position', minval = 0, maxval = 100, group = exGR)
+useTrailAfterTp1 = input.bool(false, 'Move SL to breakeven after TP1', group = exGR)
+
+enableLong  = input.bool(true, 'Enable Long Side',  group = exGR)
+enableShort = input.bool(true, 'Enable Short Side', group = exGR)
+
+// ─── Visuals ──────────────────────────────────────────────────────────────
+const string vizGR = 'Visuals'
+showRisk        = input.bool(true, 'Show TP/SL drawing',   group = vizGR)
+showOnlyLatest  = input.bool(true, 'Show Only Latest Signal', group = vizGR)
+labelOffset     = input.int(15, 'Initial Line Length', minval = 5, group = vizGR)
+bullColor       = input.color(color.lime, 'Buy Color',  group = vizGR)
+bearColor       = input.color(color.red,  'Sell Color', group = vizGR)
+tpColor         = input.color(color.aqua, 'TP Color',   group = vizGR)
+slColor         = input.color(color.orange,'SL Color',  group = vizGR)
+profitFillColor = input.color(color.new(color.green, 85), 'Profit Fill', group = vizGR)
+lossFillColor   = input.color(color.new(color.red, 85),   'Loss Fill',   group = vizGR)
+
+// ─── Algo Webhook IDs ─────────────────────────────────────────────────────
+const string algoGR = 'Algo Webhook IDs'
+buyEntryId  = input.string('6a7ff1eee17f333f4ed4c78b', 'Buy Entry alert_message',  group = algoGR)
+buyExitId   = input.string('6a7ff1eee17f333f4ed4c78b', 'Buy Exit alert_message',   group = algoGR)
+sellEntryId = input.string('6a7ff2c270900e4f11177ea0', 'Sell Entry alert_message', group = algoGR)
+sellExitId  = input.string('6a7ff2c270900e4f11177ea0', 'Sell Exit alert_message',  group = algoGR)
+
+// ═══════════════════════════════════════
+// SIGNAL
+// ═══════════════════════════════════════
+emaFast = ta.ema(close, emaFastLen)
+emaSlow = ta.ema(close, emaSlowLen)
+atrVal  = ta.atr(atrLen)
+
+rawBuy  = ta.crossover(emaFast, emaSlow)
+rawSell = ta.crossunder(emaFast, emaSlow)
+
+buySignal  = rawBuy  and inWindow
+sellSignal = rawSell and inWindow
+
+plot(emaFast, color = color.green, title = 'EMA Fast')
+plot(emaSlow, color = color.red,   title = 'EMA Slow')
+
+// ═══════════════════════════════════════
+// TRADE STATE
+// ═══════════════════════════════════════
+var int   tradeDir   = 0
+var float tradeEntry = na
+var float tradeSl    = na
+var float tradeTp1   = na
+var float tradeTp2   = na
+var float tradeTp3   = na
+var float liveSl     = na          // stop actually sent to the broker emulator
+
+var bool tp1Hit = false
+var bool tp2Hit = false
+var bool tp3Hit = false
+var bool slHit  = false
+
+// ═══════════════════════════════════════
+// ENTRIES
+// ═══════════════════════════════════════
+if buySignal
+    risk = atrVal * slAtrMult
+    tradeDir   := 1
+    tradeEntry := close
+    tradeSl    := close - risk
+    tradeTp1   := close + risk * rr1
+    tradeTp2   := close + risk * rr2
+    tradeTp3   := close + risk * rr3
+    liveSl     := tradeSl
+    tp1Hit := false, tp2Hit := false, tp3Hit := false, slHit := false
+
+    if strategy.position_size < 0
+        strategy.close('SELL', comment = 'rev', alert_message = sellExitId)
+    if enableLong
+        strategy.entry('BUY', strategy.long, comment = 'entry', alert_message = buyEntryId)
+
+if sellSignal
+    risk = atrVal * slAtrMult
+    tradeDir   := -1
+    tradeEntry := close
+    tradeSl    := close + risk
+    tradeTp1   := close - risk * rr1
+    tradeTp2   := close - risk * rr2
+    tradeTp3   := close - risk * rr3
+    liveSl     := tradeSl
+    tp1Hit := false, tp2Hit := false, tp3Hit := false, slHit := false
+
+    if strategy.position_size > 0
+        strategy.close('BUY', comment = 'rev', alert_message = buyExitId)
+    if enableShort
+        strategy.entry('SELL', strategy.short, comment = 'entry', alert_message = sellEntryId)
+
+// ═══════════════════════════════════════
+// EXITS  (guarded against na levels)
+// ═══════════════════════════════════════
+levelsReady = not na(liveSl) and not na(tradeTp3)
+
+if strategy.position_size > 0 and levelsReady
+    if useScaledExits
+        strategy.exit('TP1', 'BUY', stop = liveSl, limit = tradeTp1, qty_percent = tp1Pct,
+             comment_loss = 'SL', comment_profit = 'TP1', alert_message = buyExitId)
+        strategy.exit('TP2', 'BUY', stop = liveSl, limit = tradeTp2, qty_percent = tp2Pct,
+             comment_loss = 'SL', comment_profit = 'TP2', alert_message = buyExitId)
+        strategy.exit('TP3', 'BUY', stop = liveSl, limit = tradeTp3,
+             comment_loss = 'SL', comment_profit = 'TP3', alert_message = buyExitId)
+    else
+        strategy.exit('BUY Exit', 'BUY', stop = liveSl, limit = tradeTp3,
+             comment_loss = 'SL', comment_profit = 'TP3', alert_message = buyExitId)
+
+if strategy.position_size < 0 and levelsReady
+    if useScaledExits
+        strategy.exit('TP1s', 'SELL', stop = liveSl, limit = tradeTp1, qty_percent = tp1Pct,
+             comment_loss = 'SL', comment_profit = 'TP1', alert_message = sellExitId)
+        strategy.exit('TP2s', 'SELL', stop = liveSl, limit = tradeTp2, qty_percent = tp2Pct,
+             comment_loss = 'SL', comment_profit = 'TP2', alert_message = sellExitId)
+        strategy.exit('TP3s', 'SELL', stop = liveSl, limit = tradeTp3,
+             comment_loss = 'SL', comment_profit = 'TP3', alert_message = sellExitId)
+    else
+        strategy.exit('SELL Exit', 'SELL', stop = liveSl, limit = tradeTp3,
+             comment_loss = 'SL', comment_profit = 'TP3', alert_message = sellExitId)
+
+// Flatten anything still open when the backtest window closes
+if useDateFilter and not inWindow and strategy.position_size != 0
+    strategy.close_all(comment = 'window end')
+
+// ═══════════════════════════════════════
+// SIGNAL LABELS
+// ═══════════════════════════════════════
+var label buyLbl  = na
+var label sellLbl = na
+
+if buySignal
+    if showOnlyLatest and not na(buyLbl)
+        label.delete(buyLbl)
+    buyLbl := label.new(bar_index, low, 'BUY', style = label.style_label_up,
+         color = bullColor, textcolor = color.white, size = size.small)
+
+if sellSignal
+    if showOnlyLatest and not na(sellLbl)
+        label.delete(sellLbl)
+    sellLbl := label.new(bar_index, high, 'SELL', style = label.style_label_down,
+         color = bearColor, textcolor = color.white, size = size.small)
+
+// ═══════════════════════════════════════
+// DRAWINGS
+// ═══════════════════════════════════════
+var line lineEntry = na, var line lineSL = na
+var line lineTp1 = na,  var line lineTp2 = na, var line lineTp3 = na
+var label lbEntry = na, var label lbSL = na
+var label lbTp1 = na,   var label lbTp2 = na,  var label lbTp3 = na
+var box profitBox = na, var box lossBox = na
+
+if showRisk and (buySignal or sellSignal)
+    line.delete(lineEntry), line.delete(lineSL)
+    line.delete(lineTp1),   line.delete(lineTp2), line.delete(lineTp3)
+    label.delete(lbEntry),  label.delete(lbSL)
+    label.delete(lbTp1),    label.delete(lbTp2),  label.delete(lbTp3)
+    box.delete(profitBox),  box.delete(lossBox)
+
+    lineEnd  = bar_index + labelOffset
+    labelPos = lineEnd + 2
+
+    lineEntry := line.new(bar_index, tradeEntry, lineEnd, tradeEntry, color = color.gray, width = 2)
+    lineSL    := line.new(bar_index, tradeSl,    lineEnd, tradeSl,    color = slColor,   width = 2)
+    lineTp1   := line.new(bar_index, tradeTp1,   lineEnd, tradeTp1,   color = tpColor, width = 1, style = line.style_dashed)
+    lineTp2   := line.new(bar_index, tradeTp2,   lineEnd, tradeTp2,   color = tpColor, width = 1, style = line.style_dashed)
+    lineTp3   := line.new(bar_index, tradeTp3,   lineEnd, tradeTp3,   color = tpColor, width = 2)
+
+    lbEntry := label.new(labelPos, tradeEntry, 'ENTRY ' + str.tostring(tradeEntry, format.mintick),
+         style = label.style_label_left, color = color.new(color.gray, 30), textcolor = color.white)
+    lbSL := label.new(labelPos, tradeSl, 'SL ' + str.tostring(tradeSl, format.mintick),
+         style = label.style_label_left, color = color.new(slColor, 40), textcolor = color.white)
+    lbTp1 := label.new(labelPos, tradeTp1, 'TP1 ' + str.tostring(tradeTp1, format.mintick),
+         style = label.style_label_left, color = color.new(tpColor, 40), textcolor = color.white)
+    lbTp2 := label.new(labelPos, tradeTp2, 'TP2 ' + str.tostring(tradeTp2, format.mintick),
+         style = label.style_label_left, color = color.new(tpColor, 40), textcolor = color.white)
+    lbTp3 := label.new(labelPos, tradeTp3, 'TP3 ' + str.tostring(tradeTp3, format.mintick),
+         style = label.style_label_left, color = color.new(tpColor, 40), textcolor = color.white)
+
+    profitTop    = tradeDir == 1 ? tradeTp3 : tradeEntry
+    profitBottom = tradeDir == 1 ? tradeEntry : tradeTp3
+    profitBox := box.new(bar_index, profitTop, lineEnd, profitBottom, bgcolor = profitFillColor, border_width = 0)
+
+    lossTop    = tradeDir == 1 ? tradeEntry : tradeSl
+    lossBottom = tradeDir == 1 ? tradeSl : tradeEntry
+    lossBox := box.new(bar_index, lossTop, lineEnd, lossBottom, bgcolor = lossFillColor, border_width = 0)
+
+// ═══════════════════════════════════════
+// TP / SL TOUCH TRACKING
+// ═══════════════════════════════════════
+markTp(ln, lb, txt) =>
+    line.set_color(ln, color.green)
+    line.set_style(ln, line.style_solid)
+    label.set_text(lb, txt)
+    label.set_color(lb, color.new(color.green, 40))
+
+if tradeDir == 1
+    if high >= tradeTp1 and not tp1Hit
+        tp1Hit := true
+        markTp(lineTp1, lbTp1, 'TP1 ✓')
+        if useTrailAfterTp1
+            liveSl := tradeEntry
+    if high >= tradeTp2 and not tp2Hit
+        tp2Hit := true
+        markTp(lineTp2, lbTp2, 'TP2 ✓')
+    if high >= tradeTp3 and not tp3Hit
+        tp3Hit := true
+        markTp(lineTp3, lbTp3, 'TP3 ✓')
+    if low <= liveSl and not slHit
+        slHit := true
+        line.set_color(lineSL, color.red)
+        label.set_text(lbSL, 'SL ✕')
+        label.set_color(lbSL, color.new(color.red, 40))
+
+if tradeDir == -1
+    if low <= tradeTp1 and not tp1Hit
+        tp1Hit := true
+        markTp(lineTp1, lbTp1, 'TP1 ✓')
+        if useTrailAfterTp1
+            liveSl := tradeEntry
+    if low <= tradeTp2 and not tp2Hit
+        tp2Hit := true
+        markTp(lineTp2, lbTp2, 'TP2 ✓')
+    if low <= tradeTp3 and not tp3Hit
+        tp3Hit := true
+        markTp(lineTp3, lbTp3, 'TP3 ✓')
+    if high >= liveSl and not slHit
+        slHit := true
+        line.set_color(lineSL, color.red)
+        label.set_text(lbSL, 'SL ✕')
+        label.set_color(lbSL, color.new(color.red, 40))
+
+// ═══════════════════════════════════════
+// AUTO EXPAND
+// ═══════════════════════════════════════
+tradeFinished = tp3Hit or slHit
+if showRisk and tradeDir != 0 and not na(lineEntry)
+    dynamicEnd = tradeFinished ? line.get_x2(lineEntry) : bar_index + labelOffset
+    line.set_x2(lineEntry, dynamicEnd), line.set_x2(lineSL, dynamicEnd)
+    line.set_x2(lineTp1, dynamicEnd),   line.set_x2(lineTp2, dynamicEnd)
+    line.set_x2(lineTp3, dynamicEnd)
+    labelPos = dynamicEnd + 2
+    label.set_x(lbEntry, labelPos), label.set_x(lbSL, labelPos)
+    label.set_x(lbTp1, labelPos),   label.set_x(lbTp2, labelPos), label.set_x(lbTp3, labelPos)
+    box.set_right(profitBox, dynamicEnd), box.set_right(lossBox, dynamicEnd)
+
+// ═══════════════════════════════════════
+// ON-CHART PERFORMANCE PANEL
+// ═══════════════════════════════════════
+showStats = input.bool(true, 'Show Stats Table', group = vizGR)
+if showStats and barstate.islast
+    wins   = strategy.wintrades
+    total  = strategy.closedtrades
+    winPct = total > 0 ? wins / total * 100 : 0.0
+    pf     = strategy.grossloss > 0 ? strategy.grossprofit / strategy.grossloss : 0.0
+    avgTr  = total > 0 ? strategy.netprofit / total : 0.0
+
+    var table t = table.new(position.top_right, 2, 6, border_width = 1)
+    table.cell(t, 0, 0, 'Metric', bgcolor = color.new(color.gray, 60), text_color = color.white)
+    table.cell(t, 1, 0, 'Value',  bgcolor = color.new(color.gray, 60), text_color = color.white)
+    table.cell(t, 0, 1, 'Net Profit'),   table.cell(t, 1, 1, str.tostring(strategy.netprofit, '#.##'))
+    table.cell(t, 0, 2, 'Trades'),       table.cell(t, 1, 2, str.tostring(total))
+    table.cell(t, 0, 3, 'Win Rate %'),   table.cell(t, 1, 3, str.tostring(winPct, '#.##'))
+    table.cell(t, 0, 4, 'Profit Factor'),table.cell(t, 1, 4, str.tostring(pf, '#.##'))
+    table.cell(t, 0, 5, 'Avg Trade'),    table.cell(t, 1, 5, str.tostring(avgTr, '#.##'))
+
+// ═══════════════════════════════════════
+// ALERTS
+// ═══════════════════════════════════════
+alertcondition(buySignal,  title = 'Buy Signal',  message = 'KN Buy Signal')
+alertcondition(sellSignal, title = 'Sell Signal', message = 'KN Sell Signal')
